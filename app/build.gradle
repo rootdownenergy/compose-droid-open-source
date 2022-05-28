@@ -21,6 +21,9 @@ android {
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
     }
+    lintOptions {
+        checkReleaseBuilds false
+    }
 
     signingConfigs {
         create("release") {
@@ -61,7 +64,6 @@ android {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
     namespace 'com.rootdown.dev.notesapp'
-    buildToolsVersion '32.1.0 rc1'
 }
 
 dependencies {
