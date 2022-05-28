@@ -14,16 +14,28 @@ android {
         applicationId "com.rootdown.dev.notesapp"
         minSdk 26
         targetSdk 32
-        versionCode 8
-        versionName '1.6.1'
+        versionCode 10
+        versionName '1.6.10'
 
         testInstrumentationRunner "com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list.HiltTestRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
     }
 
+    signingConfigs {
+        create("release") {
+            // You need to specify either an absolute path or include the
+            // keystore file in the same directory as the build.gradle file.
+            storeFile = file("evolveteamnotes.jks")
+            storePassword = "P@s1t1v_changZ!"
+            keyAlias = "key0"
+            keyPassword = "P@s1t1v_changZ!"
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("release")
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -54,14 +66,15 @@ android {
 
 dependencies {
     //firebase
-    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    implementation platform('com.google.firebase:firebase-bom:30.0.2')
     implementation 'com.google.firebase:firebase-messaging-ktx:23.0.5'
-    implementation 'com.google.firebase:firebase-inappmessaging-display:20.1.2'
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-appcheck-safetynet:16.0.0'
+    // Declare the dependency for the App Check library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    //implementation 'com.google.firebase:firebase-appcheck-playintegrity'
     // Firebase UI
     implementation 'com.firebaseui:firebase-ui-auth:8.0.1'
     implementation 'com.firebaseui:firebase-ui-database:8.0.1'
@@ -100,9 +113,9 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:1.1.1"
     implementation "androidx.compose.ui:ui-tooling-preview:1.1.1"
     // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.1")
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2'
+    implementation('org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.2')
     //Dagger - Hilt
     implementation "com.google.dagger:hilt-android:2.42"
     kapt "com.google.dagger:hilt-android-compiler:2.42"
@@ -110,7 +123,7 @@ dependencies {
     //GSON
     implementation "com.google.code.gson:gson:2.9.0"
     // Room
-    def room = "2.3.0"
+    def room = '2.4.2'
     implementation "androidx.room:room-runtime:$room"
     kapt "androidx.room:room-compiler:$room"
     // Kotlin Extensions and Coroutines support for Room
@@ -119,25 +132,25 @@ dependencies {
     testImplementation "androidx.test:core:1.4.0"
     testImplementation "junit:junit:4.13.2"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2'
     testImplementation "com.google.truth:truth:1.1.3"
-    testImplementation "com.squareup.okhttp3:mockwebserver:4.9.3"
-    testImplementation "io.mockk:mockk:1.12.2"
+    testImplementation 'com.squareup.okhttp3:mockwebserver:5.0.0-alpha.7'
+    testImplementation 'io.mockk:mockk:1.12.4'
     debugImplementation "androidx.compose.ui:ui-test-manifest:1.2.0-beta02"
     // Instrumentation tests
-    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.41'
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.42'
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.42'
     androidTestImplementation "junit:junit:4.13.2"
-    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
+    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2'
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation "com.google.truth:truth:1.1.3"
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test:core-ktx:1.4.0'
-    androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.9.3"
-    androidTestImplementation "io.mockk:mockk-android:1.12.2"
+    androidTestImplementation 'com.squareup.okhttp3:mockwebserver:5.0.0-alpha.7'
+    androidTestImplementation 'io.mockk:mockk-android:1.12.4'
     androidTestImplementation 'androidx.test:runner:1.4.0'
-    androidTestImplementation "androidx.ui:ui-test:0.1.0-dev10"
-    androidTestImplementation "io.mockk:mockk-android:1.12.2"
+    androidTestImplementation 'androidx.ui:ui-test:1.0.0-alpha07'
+    androidTestImplementation 'io.mockk:mockk-android:1.12.4'
     implementation "androidx.security:security-crypto:1.0.0"
 
     androidTestImplementation 'androidx.test:runner:1.4.0'
@@ -150,4 +163,8 @@ dependencies {
     implementation "androidx.security:security-app-authenticator:1.0.0-alpha02"
     // For App Authentication API testing
     androidTestImplementation "androidx.security:security-app-authenticator:1.0.0-alpha02"
+
+    implementation"androidx.datastore:datastore-preferences:1.0.0"
+
+
 }
