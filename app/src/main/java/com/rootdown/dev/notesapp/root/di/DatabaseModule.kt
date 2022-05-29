@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.rootdown.dev.notesapp.root.feature_note.data.local.CloudGroupDao
 import com.rootdown.dev.notesapp.root.feature_note.data.local.NoteDao
-import com.rootdown.dev.notesapp.root.feature_note.data.local.NoteDatabase
+import com.rootdown.dev.notesapp.root.inter_feature.data.local.NoteDatabase
 import com.rootdown.dev.notesapp.root.feature_note.data.local.NoteWithCloudGroupDao
 import dagger.Module
 import dagger.Provides

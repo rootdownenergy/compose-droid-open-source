@@ -12,10 +12,10 @@ android {
 
     defaultConfig {
         applicationId "com.rootdown.dev.notesapp"
-        minSdk 26
+        minSdk 29
         targetSdk 32
-        versionCode 10
-        versionName '1.6.10'
+        versionCode 13
+        versionName '1.7.2'
 
         testInstrumentationRunner "com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list.HiltTestRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -25,20 +25,8 @@ android {
         checkReleaseBuilds false
     }
 
-    signingConfigs {
-        create("release") {
-            // You need to specify either an absolute path or include the
-            // keystore file in the same directory as the build.gradle file.
-            storeFile = file("evolveteamnotes.jks")
-            storePassword = "P@s1t1v_changZ!"
-            keyAlias = "key0"
-            keyPassword = "P@s1t1v_changZ!"
-        }
-    }
-
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("release")
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -49,7 +37,7 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
     buildFeatures {
         compose true

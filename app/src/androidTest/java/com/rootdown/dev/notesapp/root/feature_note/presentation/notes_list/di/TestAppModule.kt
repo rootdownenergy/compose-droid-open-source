@@ -2,7 +2,7 @@ package com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list.di
 
 import android.app.Application
 import androidx.room.Room
-import com.rootdown.dev.notesapp.root.feature_note.data.local.NoteDatabase
+import com.rootdown.dev.notesapp.root.inter_feature.data.local.NoteDatabase
 import com.rootdown.dev.notesapp.root.feature_note.domain.repository.CloudGroupRepo
 import com.rootdown.dev.notesapp.root.feature_note.domain.repository.NoteRepository
 import com.rootdown.dev.notesapp.root.feature_note.domain.repository.NoteRepositoryImpl

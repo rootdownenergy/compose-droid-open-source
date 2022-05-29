@@ -1,6 +1,6 @@
 package com.rootdown.dev.notesapp.root.di
 
-import com.rootdown.dev.notesapp.root.feature_note.data.local.NoteDatabase
+import com.rootdown.dev.notesapp.root.inter_feature.data.local.NoteDatabase
 import com.rootdown.dev.notesapp.root.feature_note.domain.repository.*
 import com.rootdown.dev.notesapp.root.feature_note.domain.use_case.*
 import dagger.Module

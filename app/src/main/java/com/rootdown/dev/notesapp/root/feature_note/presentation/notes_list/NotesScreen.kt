@@ -14,7 +14,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -23,6 +22,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list.components.NoteItem
 import com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list.components.OrderSection
+import com.rootdown.dev.notesapp.root.feature_note.presentation.theme.secondaryDark
 import com.rootdown.dev.notesapp.root.feature_note.presentation.util.Screen
 import com.rootdown.dev.notesapp.root.feature_note.presentation.util.TestTags
 import kotlinx.coroutines.launch
@@ -41,9 +41,9 @@ fun NotesScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                navController.navigate(Screen.AddEditNotesScreen.route)
-            },
-            backgroundColor = MaterialTheme.colors.primary
+                    navController.navigate(Screen.AddEditNotesScreen.route)
+                },
+                backgroundColor = MaterialTheme.colors.primary
             ) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add Note")
             }
@@ -52,7 +52,7 @@ fun NotesScreen(
         topBar = {
             Column(modifier = Modifier.fillMaxWidth()) {
                 TopAppBar(
-                    backgroundColor = Color.White,
+                    backgroundColor = secondaryDark,
                     elevation = 1.dp,
                     title = {
                         Text(text = "Sign Out")
