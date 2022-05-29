@@ -11,7 +11,7 @@ import com.rootdown.dev.notesapp.root.feature_note.domain.model.*
 @Database(
     entities = [Note::class, CloudGroup::class, NoteCloudGroupCrossRef::class],
     version = 1,
-    exportSchema = true
+    exportSchema = false
 )
 @TypeConverters(ListStringConverter::class)
 abstract class NoteDatabase: RoomDatabase() {
