@@ -10,4 +10,7 @@ class SourceLocalDataStore @Inject constructor(
     suspend fun saveMsg() {
 
     }
+    suspend fun themeSw() {
+
+    }
 }

@@ -30,7 +30,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import com.rootdown.dev.notesapp.BuildConfig
-import com.rootdown.dev.notesapp.root.feature_note.presentation.pong_tooth.PairingScreen
+import com.rootdown.dev.notesapp.root.feature_sandbox_cafe.presentation.pong_tooth.PairingScreen
 import com.rootdown.dev.notesapp.root.feature_note.presentation.util.NavigationItem
 
 

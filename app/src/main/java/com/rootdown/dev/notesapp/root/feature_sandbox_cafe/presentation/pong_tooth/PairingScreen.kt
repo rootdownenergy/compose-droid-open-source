@@ -1,4 +1,4 @@
-package com.rootdown.dev.notesapp.root.feature_note.presentation.pong_tooth
+package com.rootdown.dev.notesapp.root.feature_sandbox_cafe.presentation.pong_tooth
 
 import android.bluetooth.le.ScanResult
 import android.companion.AssociationRequest
