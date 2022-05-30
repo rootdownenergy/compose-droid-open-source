@@ -1,4 +1,4 @@
-package com.rootdown.dev.notesapp.root.feature_note.domain.repository
+package com.rootdown.dev.notesapp.root.feature_note.data.repo
 
 import com.rootdown.dev.notesapp.root.feature_note.data.local.CloudGroupDao
 import com.rootdown.dev.notesapp.root.feature_note.domain.model.CloudGroup

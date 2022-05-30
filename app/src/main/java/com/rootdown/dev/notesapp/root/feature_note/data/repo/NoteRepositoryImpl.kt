@@ -1,4 +1,4 @@
-package com.rootdown.dev.notesapp.root.feature_note.domain.repository
+package com.rootdown.dev.notesapp.root.feature_note.data.repo
 
 import com.rootdown.dev.notesapp.root.feature_note.data.local.NoteDao
 import com.rootdown.dev.notesapp.root.feature_note.domain.model.Note

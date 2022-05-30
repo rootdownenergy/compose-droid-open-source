@@ -1,7 +1,7 @@
 package com.rootdown.dev.notesapp.root.feature_note.domain.use_case.data.repository
 
 import com.rootdown.dev.notesapp.root.feature_note.domain.model.Note
-import com.rootdown.dev.notesapp.root.feature_note.domain.repository.NoteRepository
+import com.rootdown.dev.notesapp.root.feature_note.data.repo.NoteRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

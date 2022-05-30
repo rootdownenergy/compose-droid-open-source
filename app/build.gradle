@@ -5,6 +5,8 @@ plugins {
     id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'com.google.firebase.firebase-perf'
 }
 
 android {
@@ -14,8 +16,8 @@ android {
         applicationId "com.rootdown.dev.notesapp"
         minSdk 29
         targetSdk 32
-        versionCode 13
-        versionName '1.7.2'
+        versionCode 15
+        versionName '1.7.3'
 
         testInstrumentationRunner "com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list.HiltTestRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -62,6 +64,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-perf-ktx'
+    implementation 'com.google.firebase:firebase-config-ktx'
     // Declare the dependency for the App Check library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     //implementation 'com.google.firebase:firebase-appcheck-playintegrity'

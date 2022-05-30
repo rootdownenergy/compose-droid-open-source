@@ -1,11 +1,8 @@
-package com.rootdown.dev.notesapp.root.inter_feature.data.local
+package com.rootdown.dev.notesapp.root.feature_note.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.rootdown.dev.notesapp.root.feature_note.data.local.CloudGroupDao
-import com.rootdown.dev.notesapp.root.feature_note.data.local.NoteDao
-import com.rootdown.dev.notesapp.root.feature_note.data.local.NoteWithCloudGroupDao
 import com.rootdown.dev.notesapp.root.feature_note.data.local.util.ListStringConverter
 import com.rootdown.dev.notesapp.root.feature_note.domain.model.*
 
