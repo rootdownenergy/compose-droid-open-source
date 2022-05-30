@@ -3,10 +3,7 @@ package com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list.di
 import android.app.Application
 import androidx.room.Room
 import com.rootdown.dev.notesapp.root.feature_note.data.local.NoteDatabase
-import com.rootdown.dev.notesapp.root.feature_note.data.repo.CloudGroupRepo
-import com.rootdown.dev.notesapp.root.feature_note.data.repo.NoteRepository
-import com.rootdown.dev.notesapp.root.feature_note.data.repo.NoteRepositoryImpl
-import com.rootdown.dev.notesapp.root.feature_note.data.repo.NotesWithCloudGroupsRepo
+import com.rootdown.dev.notesapp.root.feature_note.data.repo.*
 import com.rootdown.dev.notesapp.root.feature_note.domain.use_case.*
 import dagger.Module
 import dagger.Provides
@@ -35,10 +32,15 @@ object TestAppModule {
 
     @Provides
     @Singleton
-    fun provideNoteUseCases(repository: NoteRepository, repo: CloudGroupRepo, repoNotesWithCloudGroup: NotesWithCloudGroupsRepo): NoteUseCases {
+    fun provideNoteUseCases(
+        repository: NoteRepositoryImpl,
+        repo: CloudGroupRepoImpl,
+        repoNotesWithCloudGroup: NotesWithCloudGroupsRepoImpl
+    ): NoteUseCases {
         return NoteUseCases(
             getNotes = GetNotes(repository),
             deleteNote = DeleteNote(repository),
+            editNote = EditNote(repository),
             addNote = AddNote(repository),
             getNote = GetNoteById(repository),
             addCrossRef = AddCrossRef(repoNotesWithCloudGroup),

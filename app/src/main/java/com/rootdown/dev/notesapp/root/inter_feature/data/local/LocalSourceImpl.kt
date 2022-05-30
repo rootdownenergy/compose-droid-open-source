@@ -22,6 +22,9 @@ class LocalSourceImpl @Inject constructor(
     @ApplicationScope private val context: Context
 ) : LocalSource {
 
+    /*
+    *  config datastore keys
+    * */
     val MSG = stringPreferencesKey("msg")
     val SWITCH = booleanPreferencesKey("switch")
 
@@ -38,9 +41,9 @@ class LocalSourceImpl @Inject constructor(
         )
     }
 
-    override suspend fun switchTheme(switchSource: LocalSourceDatastoreTheme) {
+    override suspend fun switchTheme(theme: LocalSourceDatastoreTheme) {
         context.datastore.edit { switch ->
-            switch[SWITCH] = switchSource.flag
+            switch[SWITCH] = theme.flag
         }
     }
 
