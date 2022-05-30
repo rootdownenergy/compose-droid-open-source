@@ -1,12 +1,8 @@
 package com.rootdown.dev.notesapp.root.feature_note.domain.use_case
 
 import com.rootdown.dev.notesapp.root.feature_note.domain.model.CloudGroup
-import com.rootdown.dev.notesapp.root.feature_note.domain.repository.CloudGroupRepo
-import com.rootdown.dev.notesapp.root.feature_note.domain.repository.CloudGroupRepoImpl
-import com.rootdown.dev.notesapp.root.feature_note.domain.util.CloudGroupOrder
-import com.rootdown.dev.notesapp.root.feature_note.domain.util.OrderType
+import com.rootdown.dev.notesapp.root.feature_note.data.repo.CloudGroupRepoImpl
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class GetCloudGroup @Inject constructor(

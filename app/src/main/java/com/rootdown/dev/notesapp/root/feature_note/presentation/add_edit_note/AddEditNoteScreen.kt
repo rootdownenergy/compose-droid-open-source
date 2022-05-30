@@ -94,9 +94,24 @@ fun AddEditNoteScreen(
                 })
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = {
-                viewModel.onEvent(AddEditNoteEvent.SaveNote)
-            },
+            FloatingActionButton(
+                onClick = {
+                    if(titleState.text.isBlank()){
+                        scope.launch {
+                            scaffoldState.snackbarHostState.showSnackbar(
+                                message = "Title Cannot Be Blank",
+                            )
+                        }
+                    } else if (contentState.text.isBlank()){
+                        scope.launch {
+                            scaffoldState.snackbarHostState.showSnackbar(
+                                message = "Title Cannot Be Blank",
+                            )
+                        }
+                    } else {
+                        viewModel.onEvent(AddEditNoteEvent.SaveNote)
+                    }
+                },
                 backgroundColor = MaterialTheme.colors.primary
             ) {
                 Icon(imageVector = Icons.Default.Save, contentDescription = "Save Note")
@@ -152,7 +167,7 @@ fun AddEditNoteScreen(
                 text = titleState.text,
                 hint = titleState.hint,
                 onValueChange = {
-                    viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))
+                        viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))
                 },
                 onFocusChange = {
                     viewModel.onEvent(AddEditNoteEvent.ChangeTitleFocus(it))
@@ -166,7 +181,7 @@ fun AddEditNoteScreen(
                 text = contentState.text,
                 hint = contentState.hint,
                 onValueChange = {
-                    viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
+                        viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
                 },
                 onFocusChange = {
                     viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))

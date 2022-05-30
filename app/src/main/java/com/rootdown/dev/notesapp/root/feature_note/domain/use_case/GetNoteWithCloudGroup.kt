@@ -1,8 +1,7 @@
 package com.rootdown.dev.notesapp.root.feature_note.domain.use_case
 
 import com.rootdown.dev.notesapp.root.feature_note.domain.model.NoteWithCLoudGroups
-import com.rootdown.dev.notesapp.root.feature_note.domain.repository.NotesWithCloudGroupsRepo
-import com.rootdown.dev.notesapp.root.feature_note.domain.repository.NotesWithCloudGroupsRepoImpl
+import com.rootdown.dev.notesapp.root.feature_note.data.repo.NotesWithCloudGroupsRepoImpl
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

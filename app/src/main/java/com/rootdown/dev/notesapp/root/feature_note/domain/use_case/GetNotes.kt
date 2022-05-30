@@ -1,8 +1,7 @@
 package com.rootdown.dev.notesapp.root.feature_note.domain.use_case
 
 import com.rootdown.dev.notesapp.root.feature_note.domain.model.Note
-import com.rootdown.dev.notesapp.root.feature_note.domain.repository.NoteRepository
-import com.rootdown.dev.notesapp.root.feature_note.domain.repository.NoteRepositoryImpl
+import com.rootdown.dev.notesapp.root.feature_note.data.repo.NoteRepositoryImpl
 import com.rootdown.dev.notesapp.root.feature_note.domain.util.NoteOrder
 import com.rootdown.dev.notesapp.root.feature_note.domain.util.OrderType
 import kotlinx.coroutines.flow.Flow

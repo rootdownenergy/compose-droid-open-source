@@ -132,8 +132,6 @@ class AddEditNoteViewModel @Inject constructor(
                                     _eventFlow.emit(UiEvent.SaveNote)
 
                                 }
-
-                                Log.w("$*$", "note if cloudGroup not -1")
                             }
                             else
                             {
