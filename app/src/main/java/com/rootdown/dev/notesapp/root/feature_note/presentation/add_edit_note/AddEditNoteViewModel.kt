@@ -60,27 +60,23 @@ class AddEditNoteViewModel @Inject constructor(
     private var getNotesWithCloudGroupsJob: Job? = null
 
     init {
-        Log.w("$$$", " init current note id: ${currentNoteId.toString()}")
+
         savedStateHandle.get<Int>("noteId")?.let { noteId ->
             if(noteId != -1){
                 viewModelScope.launch {
-                    Log.w("$*$", "in view model secondary constructor 1")
                     noteUseCases.getNote(noteId)?.also { note ->
                         currentNote = note
-                        Log.w("$*$", "in view model. note: ${note.toString()}")
-                        Log.w("$*$", "in view model note id: ${note.noteId.toString()}")
                         currentNoteId = note.noteId
                         _noteTitle.value = noteTitle.value.copy(
                             text = note.title,
                             isHintVisible = false
                         )
                         _noteContent.value = noteContent.value.copy(
-                            text = note.title,
+                            text = note.content,
                             isHintVisible = false
                         )
                         _noteColor.value = note.color
                     }
-
                 }
             }
         }

@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         auth = Firebase.auth
         setContent {
-            EvolveNoteAppTheme(darkTheme = true) {
+            EvolveNoteAppTheme(darkTheme = false) {
                 Surface(
                     color = MaterialTheme.colors.background
                 ){
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
                         composable(
                             route = Screen.FirebaseMsgScreen.route,
                         ) {
-                            FirebaseMsgScreen(navController = navController)
+                            FirebaseMsgScreen()
                         }
                     }
                 }

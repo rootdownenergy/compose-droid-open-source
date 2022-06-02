@@ -18,7 +18,6 @@ import com.rootdown.dev.notesapp.root.inter_feature.presentation.theme.secondary
 
 @Composable
 fun FirebaseMsgScreen(
-    navController: NavController,
     viewModel: FirebaseMsgViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value

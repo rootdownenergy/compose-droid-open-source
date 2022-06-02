@@ -34,7 +34,7 @@ fun NoteItem(
    Box(
        modifier = modifier
    ) {
-       Canvas(modifier = Modifier.matchParentSize()) {
+       Canvas(  modifier = Modifier.matchParentSize()) {
            val clipPath = Path().apply {
                lineTo(size.width - cutCornerSize.toPx(), 0f)
                lineTo(size.width, cutCornerSize.toPx())

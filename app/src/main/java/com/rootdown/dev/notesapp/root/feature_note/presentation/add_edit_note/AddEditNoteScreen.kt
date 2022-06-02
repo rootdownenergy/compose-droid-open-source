@@ -33,6 +33,7 @@ import com.rootdown.dev.notesapp.root.feature_note.domain.model.Note
 import com.rootdown.dev.notesapp.root.feature_note.domain.model.NoteCloudGroupCrossRef
 import com.rootdown.dev.notesapp.root.feature_note.presentation.add_edit_note.components.NoteWithCloudGroupItem
 import com.rootdown.dev.notesapp.root.feature_note.presentation.add_edit_note.components.TransparentHintTextField
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.theme.primaryDark
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -124,7 +125,7 @@ fun AddEditNoteScreen(
             Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(noteBackgroundAnimatable.value)
+                .background(primaryDark)
                 .padding(20.dp)
         ){
             Row(
