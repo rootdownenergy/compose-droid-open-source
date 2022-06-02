@@ -1,4 +1,4 @@
-package com.rootdown.dev.notesapp.root.feature_note.presentation
+package com.rootdown.dev.notesapp.root.inter_feature.presentation
 
 
 import android.companion.CompanionDeviceManager
@@ -16,6 +16,7 @@ import androidx.navigation.navArgument
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.BuildConfig
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
@@ -24,14 +25,14 @@ import com.rootdown.dev.notesapp.R
 import com.rootdown.dev.notesapp.root.feature_note.presentation.add_edit_note.AddEditNoteScreen
 import com.rootdown.dev.notesapp.root.feature_note.presentation.auth.LoginScreen
 import com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list.NotesScreen
-import com.rootdown.dev.notesapp.root.feature_note.presentation.util.Screen
-import com.rootdown.dev.notesapp.root.feature_note.presentation.theme.EvolveNoteAppTheme
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.util.Screen
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.theme.EvolveNoteAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
-import com.rootdown.dev.notesapp.BuildConfig
+import com.rootdown.dev.notesapp.root.feature_firebase_msg.presentation.dashboard.core.FirebaseMsgScreen
 import com.rootdown.dev.notesapp.root.feature_sandbox_cafe.presentation.pong_tooth.PairingScreen
-import com.rootdown.dev.notesapp.root.feature_note.presentation.util.NavigationItem
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.util.NavigationItem
 
 
 @AndroidEntryPoint
@@ -39,18 +40,11 @@ import com.rootdown.dev.notesapp.root.feature_note.presentation.util.NavigationI
 class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth;
-    private lateinit var db: FirebaseStorage
-
     private val deviceManager: CompanionDeviceManager by lazy {
         getSystemService(Context.COMPANION_DEVICE_SERVICE) as CompanionDeviceManager
     }
-    //val RC_SIGN_IN: Int = 1
     lateinit var mGoogleSignInClient: GoogleSignInClient
-    lateinit var mGoogleSignInOptions: GoogleSignInOptions
-
-    //val x = this.applicationContext
-    //val bluetoothManager = x.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -59,20 +53,13 @@ class MainActivity : AppCompatActivity() {
             Firebase.auth.useEmulator("10.0.2.2", 9099)
             Firebase.storage.useEmulator("10.0.2.2", 9199)
         }
-        // bluetoothManager.adapter
-        // Configure sign-in to request the user's ID, email address, and basic
-        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        // Configure sign-in to request the user's ID, email address, and basic
-        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
             .build()
-        // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        // Initialize Firebase Auth
         auth = Firebase.auth
         setContent {
-            EvolveNoteAppTheme {
+            EvolveNoteAppTheme(darkTheme = false) {
                 Surface(
                     color = MaterialTheme.colors.background
                 ){
@@ -111,8 +98,15 @@ class MainActivity : AppCompatActivity() {
                                 noteColor = color
                             )
                         }
-                        composable(route = NavigationItem.PairingScreen.route){
+                        composable(
+                            route = NavigationItem.PairingScreen.route
+                        ){
                             PairingScreen(companionDeviceManager = deviceManager)
+                        }
+                        composable(
+                            route = Screen.FirebaseMsgScreen.route,
+                        ) {
+                            FirebaseMsgScreen()
                         }
                     }
                 }

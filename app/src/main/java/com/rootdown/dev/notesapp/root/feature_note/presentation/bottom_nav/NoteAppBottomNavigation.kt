@@ -10,13 +10,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.rootdown.dev.notesapp.R
-import com.rootdown.dev.notesapp.root.feature_note.presentation.BottomNavScreens
-import com.rootdown.dev.notesapp.root.feature_note.presentation.util.NavigationItem
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.util.NavigationItem
 
 @Composable
 fun NoteAppBottomNavigation(

@@ -1,9 +1,7 @@
 package com.rootdown.dev.notesapp.root.feature_note.domain.model
 
-import android.os.Parcelable
 import androidx.room.*
-import com.rootdown.dev.notesapp.root.feature_note.presentation.theme.*
-import kotlinx.parcelize.Parcelize
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.theme.*
 
 @Entity(
     tableName = "note"
