@@ -12,7 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.rootdown.dev.notesapp.R
-import com.rootdown.dev.notesapp.root.feature_note.presentation.util.NavigationItem
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.util.NavigationItem
 
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {

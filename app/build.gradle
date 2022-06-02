@@ -153,7 +153,6 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestUtil 'androidx.test:orchestrator:1.4.1'
 
-
     // For Identity Credential APIs
     implementation "androidx.security:security-identity-credential:1.0.0-alpha03"
     // For App Authentication APIs

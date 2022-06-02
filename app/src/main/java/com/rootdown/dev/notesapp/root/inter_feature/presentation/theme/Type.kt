@@ -1,4 +1,4 @@
-package com.rootdown.dev.notesapp.root.feature_note.presentation.theme
+package com.rootdown.dev.notesapp.root.inter_feature.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

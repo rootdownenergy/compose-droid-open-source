@@ -1,6 +1,7 @@
 package com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list
 
 import androidx.compose.animation.*
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,6 +11,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Sort
 import androidx.compose.material.icons.rounded.ExitToApp
+import androidx.compose.material.icons.rounded.Menu
+import androidx.compose.material.icons.rounded.Quickreply
+import androidx.compose.material.icons.rounded.SyncAlt
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -22,9 +26,10 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list.components.NoteItem
 import com.rootdown.dev.notesapp.root.feature_note.presentation.notes_list.components.OrderSection
-import com.rootdown.dev.notesapp.root.feature_note.presentation.theme.secondaryDark
-import com.rootdown.dev.notesapp.root.feature_note.presentation.util.Screen
-import com.rootdown.dev.notesapp.root.feature_note.presentation.util.TestTags
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.theme.primaryLight
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.theme.secondaryDark
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.util.Screen
+import com.rootdown.dev.notesapp.root.inter_feature.presentation.util.TestTags
 import kotlinx.coroutines.launch
 
 @ExperimentalAnimationApi
@@ -65,12 +70,41 @@ fun NotesScreen(
                             }
                         ) {
                             Icon(
+                                modifier = Modifier.background(primaryLight),
                                 imageVector = Icons.Rounded.ExitToApp,
                                 contentDescription = null,
                             )
                         }
                     }
                 )
+            }
+        },
+        bottomBar = {
+            BottomAppBar(
+                modifier = Modifier.fillMaxWidth().background(secondaryDark)
+            ) {
+                IconButton(
+                    onClick = {
+
+                        navController.navigate(Screen.PairingScreen.route)
+                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.SyncAlt,
+                        contentDescription = null,
+                    )
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+                IconButton(
+                    onClick = {
+                        navController.navigate(Screen.FirebaseMsgScreen.route)
+                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.Quickreply,
+                        contentDescription = null,
+                    )
+                }
             }
         },
         content = {

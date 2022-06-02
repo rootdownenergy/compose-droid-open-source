@@ -24,7 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import java.util.regex.Pattern
 
-@RequiresApi(Build.VERSION_CODES.O)
+
 @Composable
 fun PairingScreen(
     companionDeviceManager: CompanionDeviceManager
@@ -115,7 +115,7 @@ fun PairingScreen(
         }
     }
 }
-@RequiresApi(Build.VERSION_CODES.O)
+
 fun buildAssociationRequest(): AssociationRequest {
     val deviceFilter = BluetoothLeDeviceFilter.Builder()
         .setNamePattern(Pattern.compile("rd_eid"))
